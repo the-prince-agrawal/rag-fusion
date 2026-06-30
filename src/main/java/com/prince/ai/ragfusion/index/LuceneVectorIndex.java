@@ -130,8 +130,6 @@ public class LuceneVectorIndex implements Closeable {
     if (chunks == null || chunks.isEmpty()) {
       return;
     }
-
-    log.info("----------------------------------------");
     log.info("Adding {} chunk(s) to Lucene Vector Index", chunks.size());
 
     try {
@@ -148,10 +146,7 @@ public class LuceneVectorIndex implements Closeable {
     } catch (IOException e) {
       throw new LuceneVectorIndexException("Failed to add chunks to Lucene vector index.", e);
     }
-
-    log.info("----------------------------------------");
     log.info("Lucene Vector Index Size : {}", size());
-    log.info("----------------------------------------");
   }
 
   /**
@@ -213,8 +208,6 @@ public class LuceneVectorIndex implements Closeable {
     if (topK <= 0) {
       throw new IllegalArgumentException("topK must be positive.");
     }
-
-    log.info("----------------------------------------");
     log.info("Lucene Vector Search Started");
 
     List<SearchResult> results = new ArrayList<>();
@@ -244,8 +237,6 @@ public class LuceneVectorIndex implements Closeable {
           result.getChunk().getChunkIndex(),
           String.format("%.4f", result.getVectorScore()));
     }
-    log.info("----------------------------------------");
-
     return results;
   }
 
@@ -341,10 +332,6 @@ public class LuceneVectorIndex implements Closeable {
     return value == UNSET_INT ? null : value;
   }
 
-  // ---------------------------------------------------------------
-  // Additional document-management helpers
-  // ---------------------------------------------------------------
-
   /**
    * Removes a single chunk by id.
    */
@@ -382,10 +369,6 @@ public class LuceneVectorIndex implements Closeable {
     return size() == 0;
   }
 
-  // ---------------------------------------------------------------
-  // Metadata
-  // ---------------------------------------------------------------
-
   public int getVectorDimension() {
     return vectorDimension;
   }
@@ -415,10 +398,6 @@ public class LuceneVectorIndex implements Closeable {
         '}';
   }
 
-  // ---------------------------------------------------------------
-  // Resource cleanup
-  // ---------------------------------------------------------------
-
   @Override
   public synchronized void close() {
     try {
@@ -436,10 +415,6 @@ public class LuceneVectorIndex implements Closeable {
       throw new LuceneVectorIndexException("Failed to close Lucene vector index.", e);
     }
   }
-
-  // ---------------------------------------------------------------
-  // Exception handling
-  // ---------------------------------------------------------------
 
   /**
    * Wraps low-level Lucene/IO failures into a single unchecked type so callers (services/controllers) don't need to

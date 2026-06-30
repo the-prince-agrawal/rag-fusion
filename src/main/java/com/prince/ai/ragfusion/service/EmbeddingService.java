@@ -21,19 +21,13 @@ public class EmbeddingService {
       return;
     }
 
-    log.info("----------------------------------------");
-    log.info("Generating Embeddings...");
-    log.info("Total Chunks : {}", chunks.size());
-
     List<String> texts = chunks.stream()
         .map(Chunk::getText)
         .toList();
-
     List<float[]> embeddings = voyageApiClient.embedDocuments(texts);
 
     if (embeddings.size() != chunks.size()) {
-      throw new IllegalStateException(
-          "Embedding count does not match chunk count.");
+      throw new IllegalStateException("Embedding count does not match chunk count.");
     }
 
     for (int i = 0; i < chunks.size(); i++) {
@@ -44,23 +38,10 @@ public class EmbeddingService {
           chunk.getChunkIndex(),
           chunk.getEmbedding().length);
     }
-
-    log.info("----------------------------------------");
-    log.info("Successfully Generated {} Embeddings",
-        embeddings.size());
-    log.info("----------------------------------------");
+    log.info("Successfully Generated {} Embeddings", embeddings.size());
   }
 
   public float[] embedQuery(String query) {
-
-    log.info("Generating query embedding...");
-
-    float[] embedding = voyageApiClient.embedQuery(query);
-
-    log.info("Query Embedding Dimension : {}",
-        embedding.length);
-
-    return embedding;
+    return voyageApiClient.embedQuery(query);
   }
-
 }
