@@ -18,9 +18,13 @@ fusion-rag:
     overlap: 100
   retrieval:
     top-k: 5
+  vector:
+    dimension: 1024
 
 voyage:
-  api-key: YOUR_VOYAGE_API_KEY
+  api-key: ${EP_ACC_VOYAGE_KEY}
+  model: voyage-3.5-lite
+  url: https://api.voyageai.com/v1/embeddings
 
 claude:
   api-key: YOUR_CLAUDE_API_KEY
@@ -29,4 +33,3 @@ logging:
   level:
     root: INFO
     com.prince.ai: DEBUG
-

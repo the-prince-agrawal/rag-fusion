@@ -1,6 +1,5 @@
 package com.prince.ai.ragfusion.service;
 
-import com.prince.ai.ragfusion.chunk.ChunkService;
 import com.prince.ai.ragfusion.model.Chunk;
 import com.prince.ai.ragfusion.model.DocumentContent;
 import com.prince.ai.ragfusion.model.UploadDocumentResponseDto;
@@ -33,6 +32,8 @@ public class DocumentService {
 
   private final DocumentReaderService documentReaderService;
   private final ChunkService chunkService;
+  private final EmbeddingService embeddingService;
+  private final VectorSearchService vectorSearchService;
 
   public UploadDocumentResponseDto indexDocument(MultipartFile file) {
 
@@ -75,6 +76,8 @@ public class DocumentService {
       log.info("----------------------------------------");
 
       List<Chunk> chunks = chunkService.generateChunks(documentContent);
+      embeddingService.embed(chunks);
+      vectorSearchService.indexChunks(chunks);
       log.info("Chunking Completed, Total Chunks : {}", chunks.size());
 
       return UploadDocumentResponseDto.builder()

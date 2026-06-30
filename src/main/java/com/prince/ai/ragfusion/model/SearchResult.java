@@ -10,25 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SearchResult {
-
-  /**
-   * Chunk information
-   */
   private Chunk chunk;
-
-  /**
-   * Cosine similarity score
-   */
-  private Double vectorScore;
-
-  /**
-   * BM25 score
-   */
   private Double bm25Score;
-
-  /**
-   * Reciprocal Rank Fusion score
-   */
+  private Double vectorScore;
   private Double rrfScore;
 
 }

@@ -1,4 +1,4 @@
-package com.prince.ai.ragfusion.chunk;
+package com.prince.ai.ragfusion.service;
 
 import com.prince.ai.ragfusion.model.Chunk;
 import com.prince.ai.ragfusion.model.DocumentContent;
