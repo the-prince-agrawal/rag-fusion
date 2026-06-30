@@ -1,3 +1,32 @@
 spring:
   application:
     name: fusion-rag
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+server:
+  port: 8080
+
+fusion-rag:
+  upload-directory: uploads
+  document-directory: src/main/resources/documents
+  chunk:
+    size: 500
+    overlap: 100
+  retrieval:
+    top-k: 5
+
+voyage:
+  api-key: YOUR_VOYAGE_API_KEY
+
+claude:
+  api-key: YOUR_CLAUDE_API_KEY
+
+logging:
+  level:
+    root: INFO
+    com.prince.ai: DEBUG
+

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profiles version="12">
+    <profile kind="CodeFormatterProfile" name="ReviewGenius-Standard">
+
+        <!-- 𝗜𝗡𝗗𝗘𝗡𝗧𝗔𝗧𝗜𝗢𝗡 -->
+        <setting id="org.eclipse.jdt.core.formatter.tabulation.char" value="space"/>
+        <setting id="org.eclipse.jdt.core.formatter.tabulation.size" value="2"/>
+        <setting id="org.eclipse.jdt.core.formatter.indentation.size" value="2"/>
+        <setting id="org.eclipse.jdt.core.formatter.continuation_indentation" value="2"/>
+
+        <!-- 𝗟𝗜𝗡𝗘 𝗟𝗘𝗡𝗚𝗧𝗛 -->
+        <setting id="org.eclipse.jdt.core.formatter.lineSplit" value="120"/>
+
+        <!-- 𝗕𝗥𝗔𝗖𝗘𝗦 𝗦𝗧𝗬𝗟𝗘 -->
+        <setting id="org.eclipse.jdt.core.formatter.brace_position_for_type_declaration" value="end_of_line"/>
+        <setting id="org.eclipse.jdt.core.formatter.brace_position_for_method_declaration" value="end_of_line"/>
+        <setting id="org.eclipse.jdt.core.formatter.brace_position_for_block" value="end_of_line"/>
+
+        <!-- 𝗦𝗣𝗔𝗖𝗜𝗡𝗚 -->
+        <setting id="org.eclipse.jdt.core.formatter.insert_space_after_comma_in_method_invocation_arguments" value="insert"/>
+        <setting id="org.eclipse.jdt.core.formatter.insert_space_after_comma_in_method_declaration_parameters" value="insert"/>
+        <setting id="org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_method_declaration" value="insert"/>
+        <setting id="org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_type_declaration" value="insert"/>
+        <setting id="org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_method_invocation" value="do not insert"/>
+        <setting id="org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_method_invocation" value="do not insert"/>
+        <setting id="org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_method_invocation" value="do not insert"/>
+
+        <!-- 𝗡𝗘𝗪 𝗟𝗜𝗡𝗘𝗦 -->
+        <setting id="org.eclipse.jdt.core.formatter.insert_new_line_after_annotation_on_method" value="insert"/>
+        <setting id="org.eclipse.jdt.core.formatter.insert_new_line_after_annotation_on_type" value="insert"/>
+        <setting id="org.eclipse.jdt.core.formatter.blank_lines_before_method" value="1"/>
+        <setting id="org.eclipse.jdt.core.formatter.blank_lines_after_imports" value="1"/>
+
+        <!-- 𝗜𝗠𝗣𝗢𝗥𝗧𝗦 -->
+        <setting id="org.eclipse.jdt.core.formatter.organize_imports_on_the_fly" value="true"/>
+        <setting id="org.eclipse.jdt.core.formatter.number_of_imports_for_on_demand" value="99"/>
+        <setting id="org.eclipse.jdt.core.formatter.number_of_static_imports_for_on_demand" value="99"/>
+
+        <!-- 𝗪𝗥𝗔𝗣𝗣𝗜𝗡𝗚 -->
+        <setting id="org.eclipse.jdt.core.formatter.wrap_before_binary_operator" value="true"/>
+        <setting id="org.eclipse.jdt.core.formatter.wrap_outer_expressions_when_nested" value="true"/>
+
+        <!-- 𝗖𝗢𝗠𝗠𝗘𝗡𝗧𝗦 -->
+        <setting id="org.eclipse.jdt.core.formatter.comment.line_length" value="120"/>
+        <setting id="org.eclipse.jdt.core.formatter.comment.format_block_comments" value="true"/>
+        <setting id="org.eclipse.jdt.core.formatter.comment.format_javadoc_comments" value="true"/>
+
+        <!-- 𝗖𝗢𝗡𝗧𝗥𝗢𝗟 𝗦𝗧𝗔𝗧𝗘𝗠𝗘𝗡𝗧𝗦 -->
+        <setting id="org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_if" value="insert"/>
+        <setting id="org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_for" value="insert"/>
+        <setting id="org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_while" value="insert"/>
+
+        <!-- 𝗞𝗘𝗘𝗣 𝗖𝗢𝗗𝗘 𝗖𝗟𝗘𝗔𝗡 -->
+        <setting id="org.eclipse.jdt.core.formatter.keep_simple_if_on_one_line" value="false"/>
+        <setting id="org.eclipse.jdt.core.formatter.keep_else_statement_on_same_line" value="false"/>
+
+        <!-- FORCE WRAPPING FOR ANNOTATIONS -->
+        <setting id="org.eclipse.jdt.core.formatter.alignment_for_annotations_on_field" value="16"/>
+        <setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_annotation" value="16"/>
+
+        <!-- WRAP LONG LINES -->
+        <setting id="org.eclipse.jdt.core.formatter.wrap_before_assignment_operator" value="true"/>
+
+        <!-- FORCE WRAP METHOD CHAIN -->
+        <setting id="org.eclipse.jdt.core.formatter.alignment_for_selector_in_method_invocation" value="16"/>
+
+        <!-- FORCE WRAP ARGUMENTS -->
+        <setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_method_invocation" value="16"/>
+
+        <!-- FORCE WRAP ANNOTATIONS -->
+        <setting id="org.eclipse.jdt.core.formatter.alignment_for_annotations_on_field" value="16"/>
+        <setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_annotation" value="16"/>
+
+        <!-- DO NOT COLLAPSE -->
+        <setting id="org.eclipse.jdt.core.formatter.join_wrapped_lines" value="false"/>
+
+        <!-- WRAP BEFORE DOT (IMPORTANT) -->
+        <setting id="org.eclipse.jdt.core.formatter.wrap_before_dot" value="true"/>
+    </profile>
+</profiles>

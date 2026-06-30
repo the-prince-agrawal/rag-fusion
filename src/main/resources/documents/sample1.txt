@@ -1,0 +1,15 @@
+Retrieval-Augmented Generation (RAG) is a technique that enhances Large Language Models by providing external knowledge during inference.
+
+Instead of relying only on the model's training data, RAG retrieves relevant information from an external knowledge base before generating a response.
+
+A typical RAG pipeline consists of document ingestion, text chunking, embedding generation, vector indexing, retrieval, reranking, and response generation.
+
+Semantic search uses dense vector embeddings to retrieve conceptually similar documents, even when the wording differs.
+
+Lexical search, such as BM25, retrieves documents based on exact keyword matching and term frequency.
+
+Hybrid Search combines semantic search and lexical search to improve retrieval quality.
+
+Reciprocal Rank Fusion (RRF) is a simple yet effective ranking algorithm that merges multiple ranked result lists into a single ranking without requiring score normalization.
+
+Modern RAG systems often use hybrid retrieval followed by reranking and finally answer generation using an LLM such as Claude or GPT.

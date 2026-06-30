@@ -1,0 +1,15 @@
+Spring Boot simplifies Java application development by providing auto-configuration, embedded web servers, and production-ready features.
+
+REST APIs are typically implemented using @RestController, @GetMapping, @PostMapping, and dependency injection through Spring's IoC container.
+
+Apache Lucene is a powerful Java library for full-text indexing and searching. BM25 is the default ranking algorithm used by Lucene.
+
+Vector databases store embeddings generated from text using embedding models. Similarity search is commonly performed using cosine similarity.
+
+Embeddings transform text into dense numerical vectors that capture semantic meaning rather than exact words.
+
+Chunking is an important preprocessing step in Retrieval-Augmented Generation because embedding entire documents often exceeds model context limits.
+
+Sliding window chunking helps preserve context between adjacent chunks by overlapping a configurable number of words or characters.
+
+Hybrid retrieval systems frequently combine BM25 with vector search using Reciprocal Rank Fusion before sending the most relevant chunks to a Large Language Model.cls
