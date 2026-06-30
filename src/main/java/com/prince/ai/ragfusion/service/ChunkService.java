@@ -43,11 +43,6 @@ public class ChunkService {
           .build();
 
       chunks.add(chunk);
-      log.info("--------------------------------------------");
-      log.info("Chunk {}", chunkIndex);
-      log.info("Start Offset : {}", start);
-      log.info("End Offset   : {}", end);
-      log.info("Characters   : {}", chunkText.length());
       chunkIndex++;
       if (end == text.length()) {
         break;
@@ -57,29 +52,17 @@ public class ChunkService {
         start = 0;
       }
     }
-
-    log.info("--------------------------------------------");
-    log.info("Total Chunks Generated : {}", chunks.size());
-
     return chunks;
   }
 
-  /**
-   * Future implementation
-   */
+  // TODO: Future implementation
   public List<Chunk> chunkBySentence(DocumentContent documentContent) {
-
-    throw new UnsupportedOperationException(
-        "Sentence chunking is not implemented yet.");
+    throw new UnsupportedOperationException("Sentence chunking is not implemented yet.");
   }
 
-  /**
-   * Future implementation
-   */
+  // TODO: Future implementation
   public List<Chunk> chunkByFixedLength(DocumentContent documentContent) {
-
-    throw new UnsupportedOperationException(
-        "Fixed Length chunking is not implemented yet.");
+    throw new UnsupportedOperationException("Fixed Length chunking is not implemented yet.");
   }
 
 }

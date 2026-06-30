@@ -18,14 +18,12 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.UUID;
 
+import static com.prince.ai.ragfusion.util.CommonUtil.validateFile;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class DocumentService {
-
-  private static final Set<String> ALLOWED_EXTENSIONS = Set.of(
-      "txt",
-      "pdf");
 
   @Value("${fusion-rag.upload-directory}")
   private String uploadDirectory;
@@ -36,44 +34,21 @@ public class DocumentService {
   private final VectorSearchService vectorSearchService;
 
   public UploadDocumentResponseDto indexDocument(MultipartFile file) {
-
     validateFile(file);
 
     try {
-
       Path uploadPath = Path.of(uploadDirectory);
-
       if (Files.notExists(uploadPath)) {
         Files.createDirectories(uploadPath);
       }
 
       String documentId = UUID.randomUUID().toString();
-
       String storedFileName = documentId + "-" + file.getOriginalFilename();
-
       Path destination = uploadPath.resolve(storedFileName);
-
-      Files.copy(
-          file.getInputStream(),
-          destination,
-          StandardCopyOption.REPLACE_EXISTING);
-
+      Files.copy(file.getInputStream(), destination, StandardCopyOption.REPLACE_EXISTING);
       log.info("Document uploaded successfully : {}", destination);
-
-      /*
-       * Read document
-       */
       DocumentContent documentContent = documentReaderService.readDocument(
-          documentId,
-          file.getOriginalFilename(),
-          destination);
-
-      log.info("----------------------------------------");
-      log.info("Document Successfully Read");
-      log.info("Document Id : {}", documentContent.getDocumentId());
-      log.info("File Name   : {}", documentContent.getFileName());
-      log.info("Characters  : {}", documentContent.getContent().length());
-      log.info("----------------------------------------");
+          documentId, file.getOriginalFilename(), destination);
 
       List<Chunk> chunks = chunkService.generateChunks(documentContent);
       embeddingService.embed(chunks);
@@ -90,37 +65,6 @@ public class DocumentService {
     } catch (IOException ex) {
       log.error("Failed to upload document.", ex);
       throw new RuntimeException("Unable to upload document.", ex);
-    }
-  }
-
-  private void validateFile(MultipartFile file) {
-
-    if (file == null || file.isEmpty()) {
-      throw new IllegalArgumentException(
-          "File cannot be empty.");
-    }
-
-    String originalFileName = file.getOriginalFilename();
-
-    if (originalFileName == null || originalFileName.isBlank()) {
-      throw new IllegalArgumentException(
-          "Invalid file name.");
-    }
-
-    int lastDot = originalFileName.lastIndexOf('.');
-
-    if (lastDot == -1) {
-      throw new IllegalArgumentException(
-          "File extension is missing.");
-    }
-
-    String extension = originalFileName
-        .substring(lastDot + 1)
-        .toLowerCase(Locale.ROOT);
-
-    if (!ALLOWED_EXTENSIONS.contains(extension)) {
-      throw new IllegalArgumentException(
-          "Only txt and pdf files are supported.");
     }
   }
 
